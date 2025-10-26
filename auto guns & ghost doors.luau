@@ -57,7 +57,6 @@ end
 local Gun1 = "AK-47"
 local Gun2 = "Remington 870"
 local Gun3 = "M4A1"
-local Gun4 = "Pistol"
 
 RunService.Heartbeat:Connect(function()
     Character = LocalPlayer.Character
@@ -72,9 +71,6 @@ RunService.Heartbeat:Connect(function()
     end
     if not GetTool(Gun3) then
         GetGun(Gun3)
-    end
-    if not GetTool(Gun4) then
-        GetGun(Gun4)
     end
     DoorsHandler()
 end)
