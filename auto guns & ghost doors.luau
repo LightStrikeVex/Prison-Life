@@ -22,6 +22,7 @@ local function GetTool(ToolName)
     return LocalPlayer:FindFirstChild("Backpack") and LocalPlayer.Backpack:FindFirstChild(ToolName) or LocalPlayer.Character and LocalPlayer.Character:FindFirstChild(ToolName)
 end
 
+
 local function GetGun(GunName)
     local Giver, Found = FindGunSpawner(GunName)
     if not Found then
@@ -36,8 +37,27 @@ local function GetGun(GunName)
     until GetTool(GunName)
 end
 
-local Gun1 = "M4A1"
+local function DoorsHandler()
+    local Doors = workspace:FindFirstChild("Doors")
+    for i,v in pairs(Doors:GetDescendants()) do
+        if v:IsA("BasePart") then
+            v.CanCollide = false
+            v.Transparency = 0.6
+        end
+    end
+    local CellDoors = workspace:FindFirstChild("CellDoors")
+    for i,v in pairs(CellDoors:GetDescendants()) do
+        if v:IsA("BasePart") then
+            v.CanCollide = false
+            v.Transparency = 0.6
+        end
+    end
+end
+
+local Gun1 = "AK-47"
 local Gun2 = "Remington 870"
+local Gun3 = "M4A1"
+local Gun4 = "Pistol"
 
 RunService.Heartbeat:Connect(function()
     Character = LocalPlayer.Character
@@ -50,4 +70,11 @@ RunService.Heartbeat:Connect(function()
     if not GetTool(Gun2) then
         GetGun(Gun2)
     end
+    if not GetTool(Gun3) then
+        GetGun(Gun3)
+    end
+    if not GetTool(Gun4) then
+        GetGun(Gun4)
+    end
+    DoorsHandler()
 end)
