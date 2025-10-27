@@ -12,6 +12,7 @@ character.Humanoid.HealthChanged:Connect(function(health)
         TeamEvent:FireServer(Teams.Neutral)
         TeamEvent:FireServer(Teams.Guards)
         ItemHandler:InvokeServer(ITEMPICKUP)
+        TeamEvent:FireServer(Teams.Neutral)
         TeamEvent:FireServer(Teams.Inmates)
     end
 end)
